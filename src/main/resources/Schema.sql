@@ -2,14 +2,14 @@
 -- CREATE TABLE TABLE_NAME
 CREATE TABLE Player(
 --  COLUMN_NAME TYPE REQUIRED OR OPTIONAL
-                       ID INTEGER NOT NULL,
+                       PID INTEGER NOT NULL,
                        Name VARCHAR(255) NOT NULL ,
                        Age INTEGER NOT NULL,
                        Nationality VARCHAR(50) NOT NULL,
                        DOB TIMESTAMP,
                        Designation INTEGER,
     -- UNIQUE KEY FOR THE TABLE
-                       PRIMARY KEY (ID)
+                       PRIMARY KEY (PID)
 );
 
 

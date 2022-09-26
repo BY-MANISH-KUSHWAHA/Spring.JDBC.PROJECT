@@ -1,3 +1,39 @@
+![http://http://localhost:8080/h2-console](src/assets/5.PNG)
+```
+@Controller => Web Layer
+
+    => Methods => HTTP Requests
+
+    => @RestController
+
+@Service => Service Layer
+
+    > Business Logic
+
+@Repository => Data Access Layer
+
+    => Encapsulate Storage, retrieval, search
+
+I
+
+Employee => Fname, Email, Salary
+
+Average salary => service => average salary => salary
+
+Ecommerce Website
+
+    Users => Component => Aspect Oriented Programming
+
+    Login Service, Signup Service,
+
+    Forgot PasswordService => Business Logic => Filter Service Interface => getRecommendations() => ContentFiltering, MultiFiltering, => Injecting on RecommendedMovielmplementation()
+
+    Email, Password => Data Layer => @Repository => DAO
+
+    Response on Ul/Web =›› @Controller => Web Laver
+
+    Products => Component =› Category Service, Review Service
+```
 # Try to use In Memory Database (called as mem)
 
 ## H2 Console GUI ENABLE
@@ -82,3 +118,57 @@ Commands:
 ### ==> INT, VARCHAR, DATE, TIMESTAMP
 
 ### ---------------------------------------------------------------------
+# JDBC Query
+
+## ROWMAPPER
+```
+
+@Repository
+public class PlayerDAO {
+
+    @Autowired
+    JdbcTemplate jdbcTemplate;
+
+    public List<Player> getAllPlayers(){
+        String getPlayerQuery = "SELECT * FROM Player";
+
+        // Row Mapper
+        return jdbcTemplate.query(getPlayerQuery,new BeanPropertyRowMapper<Player>(Player.class));
+    }
+}
+
+@RestController
+public class playerController {
+
+    @Autowired
+    PlayerDAO dao;
+
+    @GetMapping(value = "/players")
+    public List<Player> getAllPlayerFromDB(){
+        return dao.getAllPlayers();
+    }
+
+    @GetMapping(value = "/players-json", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Player> getAllPlayerFromDBJson(){
+        return getAllPlayerFromDB();
+    }
+
+}
+```
+
+# DEFINE ALL CLASS IN APLLICATION LAYERING
+## WEB LAYER
+```
+=> CLIENT
+=> VIEW
+=> CONTROLLER => getPlayerController => Autowired Player DAO
+```
+## DAO
+```
+=> PlayerDAO => @Autowired JDBCTemplate
+=> Jdbc Template => Querying =>From the Database, Mapping to => Player Model [Encapsulated Data]
+```
+## DATABASE
+```
+
+```
