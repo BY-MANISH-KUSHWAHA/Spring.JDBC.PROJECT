@@ -172,3 +172,15 @@ public class playerController {
 ```
 
 ```
+
+# RECAP
+```
+Client => Browser => Request => http://localhost:8080/movies => Get request
+
+Request Fulfill By: Tomcat Server => 127.0.0.1:8080 => SpringBootJdbcApplication => Main Class => @SpringBootApplication select this file for Server
+
+SpringBootJDBCApp => @ComponentScan =>PlayerController @RestController[Bean] => Default Constructor => @Autowired PlayerDAO
+
+PlayerDAO.getALLPlayers() =>Communicate with the Database @Autowired JDBC Templete => Querying, RowMapping[Player Model] DAO =>
+```
+![http://http://localhost:8080/h2-console](src/assets/6.PNG)
