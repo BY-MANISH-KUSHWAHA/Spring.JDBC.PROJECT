@@ -181,6 +181,7 @@ Request Fulfill By: Tomcat Server => 127.0.0.1:8080 => SpringBootJdbcApplication
 
 SpringBootJDBCApp => @ComponentScan =>PlayerController @RestController[Bean] => Default Constructor => @Autowired PlayerDAO
 
-PlayerDAO.getALLPlayers() =>Communicate with the Database @Autowired JDBC Templete => Querying, RowMapping[Player Model] DAO =>
+PlayerDAO.getALLPlayers() =>Communicate with the Database @Autowired JDBC Template => Querying, RowMapping[Player Model] DAO =>
 ```
+## JDBC TEMPLATE
 ![http://http://localhost:8080/h2-console](src/assets/6.PNG)
