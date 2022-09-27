@@ -1,4 +1,6 @@
 ![http://http://localhost:8080/h2-console](src/assets/5.PNG)
+
+### https://www.tutorialspoint.com/springjdbc/springjdbc_delete_query.htm
 ```
 @Controller => Web Layer
 

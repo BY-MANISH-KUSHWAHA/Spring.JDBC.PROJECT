@@ -2,10 +2,8 @@ package com.spring.boot.jdbc.Spring.Boot.JDBC;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,6 +27,7 @@ public class playerController {
 
     // -------------------------------- Get Call with Parameters -----------------------------------
     // Blog: https://www.amitph.com/spring-requestparam-annotation/
+    // Blog: https://dzone.com/articles/spring-boot-passing-parameters
     // Call: http://localhost:8080/playersByPID/2
     @GetMapping(value = "/playersByPID/{pid}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Player getPlayerByPIDFromDBJson(@PathVariable("pid") String PID){
@@ -54,6 +53,9 @@ public class playerController {
         }
 
     }
+
+    // Blog: https://lightrun.com/answers/springfox-springfox-using-getmapping-method--with-custom-java-class--parameter--and-parameter-show-error-type-in-swagge
+    // This Actually used in Swagger
     @GetMapping("/playersByPID2")
     public Player getPlayerByPIDFromDBJson2(Parms parameters)
     {
@@ -62,6 +64,13 @@ public class playerController {
     }
 
     // -------------------------------- END Get Call with Parameters -----------------------------------
+
+    //--------------------------------- Delete a Player ----------------------------------------------- ;
+    @DeleteMapping(value = "/delete/{id}")
+    public int deletePost(@PathVariable int id) {
+        return dao.deletePlayer(id);
+    }
+    //--------------------------------- End Delete a Player -----------------------------------------------
 
 
 }
