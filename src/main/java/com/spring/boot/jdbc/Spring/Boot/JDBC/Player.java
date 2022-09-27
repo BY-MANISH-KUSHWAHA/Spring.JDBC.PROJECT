@@ -14,7 +14,7 @@ public class Player {
     }
 
     public Player(int pid, String name, int age, String nationality, Date dob, int designation) {
-        this.pid = pid;
+        this.pid = pid; // id also valid
         this.name = name;
         this.age = age;
         this.nationality = nationality;

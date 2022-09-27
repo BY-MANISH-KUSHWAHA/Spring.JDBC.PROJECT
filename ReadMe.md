@@ -112,6 +112,8 @@ If Salary is Primary Key and ID for another we need to take a Query
 
 Commands:
     SELECT*FROM PLAYERS WHERE SALARY.ID=PLAYER.ID
+    Select Name, Age,DOB From Player Where PID = 2;
+    
 ```
  
 ## Date Type
