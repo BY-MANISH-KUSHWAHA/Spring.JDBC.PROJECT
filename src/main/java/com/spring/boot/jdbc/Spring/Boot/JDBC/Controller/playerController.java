@@ -1,8 +1,9 @@
-package com.spring.boot.jdbc.Spring.Boot.JDBC;
+package com.spring.boot.jdbc.Spring.Boot.JDBC.Controller;
 
+import com.spring.boot.jdbc.Spring.Boot.JDBC.Entity.Player;
+import com.spring.boot.jdbc.Spring.Boot.JDBC.Repository.PlayerDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -68,6 +69,7 @@ public class playerController {
     //--------------------------------- Delete a Player ----------------------------------------------- ;
     @DeleteMapping(value = "/delete/{id}")
     public int deletePost(@PathVariable int id) {
+        System.out.println(id);
         return dao.deletePlayer(id);
     }
     //--------------------------------- End Delete a Player -----------------------------------------------

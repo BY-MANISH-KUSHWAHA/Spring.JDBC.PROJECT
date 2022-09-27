@@ -189,3 +189,76 @@ PlayerDAO.getALLPlayers() =>Communicate with the Database @Autowired JDBC Templa
 ```
 ## JDBC TEMPLATE
 ![http://http://localhost:8080/h2-console](src/assets/6.PNG)
+
+# JPA
+![http://http://localhost:8080/h2-console](src/assets/7.PNG)
+![http://http://localhost:8080/h2-console](src/assets/8.PNG)
+
+
+```
+=> No Row Mapper
+=> No Schema.sql
+
+@Repository 
+
+@Entity1 => @ Table => In Database => Hibernate core will drop in the database and create new one => @Column, @Id, => Columns inside our database
+@Entity2
+@Entity3
+
+How to Apply this on Model class
+package com.spring.boot.jdbc.Spring.Boot.JDBC;
+
+import javax.persistence.*;
+import java.util.Date;
+
+@Entity             // RowMapping (create database/schema)
+@Table(name = "Player") // give the table name
+public  class Player {
+
+    @Id
+    @GeneratedValue
+    private int pid; // Primary Key
+
+    @Column(name = "Name")
+    private String name;
+
+    @Column(name = "Age")
+    private int age;
+
+    @Column(name = "Nationality")
+    private String nationality;
+
+    @Column(name = "DOB")
+    private Date dob;
+
+    @Column(name = "Designation")
+    private int designation;
+
+    public Player() {
+    }
+
+    public Player(int pid, String name, int age, String nationality, Date dob, int designation) {
+        this.pid = pid; // id also valid
+        this.name = name;
+        this.age = age;
+        this.nationality = nationality;
+        this.dob = dob;
+        this.designation = designation;
+    }
+
+    // all getter and setter
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "pid=" + pid +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", nationality='" + nationality + '\'' +
+                ", dob=" + dob +
+                ", designation=" + designation +
+                '}';
+    }
+}
+
+```

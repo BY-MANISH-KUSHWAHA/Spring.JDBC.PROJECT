@@ -1,16 +1,43 @@
-package com.spring.boot.jdbc.Spring.Boot.JDBC;
+package com.spring.boot.jdbc.Spring.Boot.JDBC.Entity;
 
+import javax.persistence.*;
 import java.util.Date;
 
-public class Player {
-    private int pid;
+@Entity             // RowMapping (create database/schema)
+@Table(name = "Player") // give the table name
+public  class Player {
+
+    @Id
+    @GeneratedValue
+    private int pid; // Primary Key
+
+    @Column(name = "Name")
     private String name;
+
+    @Column(name = "Age")
     private int age;
+
+    @Column(name = "Nationality")
     private String nationality;
+
+    @Column(name = "DOB")
     private Date dob;
+
+    @Column(name = "Designation")
     private int designation;
 
     public Player() {
+
+    }
+
+
+    // JPA constructor PID is autoConfigured
+    public Player( String name, int age, String nationality, Date dob, int designation) {
+        this.name = name;
+        this.age = age;
+        this.nationality = nationality;
+        this.dob = dob;
+        this.designation = designation;
     }
 
     public Player(int pid, String name, int age, String nationality, Date dob, int designation) {

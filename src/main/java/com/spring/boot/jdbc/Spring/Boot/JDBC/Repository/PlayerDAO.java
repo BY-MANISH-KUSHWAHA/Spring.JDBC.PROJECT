@@ -1,5 +1,6 @@
-package com.spring.boot.jdbc.Spring.Boot.JDBC;
+package com.spring.boot.jdbc.Spring.Boot.JDBC.Repository;
 
+import com.spring.boot.jdbc.Spring.Boot.JDBC.Entity.Player;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
