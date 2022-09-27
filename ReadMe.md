@@ -212,6 +212,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity             // RowMapping (create database/schema)
+@NamedQuery(name = "get-all-players",query = "SELECT p FROM Player p")
 @Table(name = "Player") // give the table name
 public  class Player {
 
@@ -260,5 +261,77 @@ public  class Player {
                 '}';
     }
 }
+
+package com.spring.boot.jdbc.Spring.Boot.JDBC.Repository;
+
+
+import com.spring.boot.jdbc.Spring.Boot.JDBC.Entity.Player;
+import org.springframework.stereotype.Repository;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+import javax.transaction.Transactional;
+import java.util.List;
+
+// jda - Java persistence api
+@Repository // To perform
+@Transactional // to make transaction b/w java classes and database
+public class PlayerRepository {
+
+    @PersistenceContext
+    EntityManager entityManager;
+
+
+    public Player insertPlayer(Player player){
+        return entityManager.merge(player);
+    }
+
+    public Player updatePlayer(Player player){
+        return entityManager.merge(player);
+    }
+
+    public Player getPlayerById(int id){
+        return entityManager.find(Player.class,id);
+    }
+
+    public void deleteById(int id){
+        Player player = getPlayerById(id);
+        entityManager.remove(player);
+    }
+
+    public List<Player> getAllPlayer(){
+        TypedQuery<Player> getAll = entityManager.createNamedQuery("get-all-players", Player.class);
+
+        return getAll.getResultList();
+
+    }
+
+Inside run method(SpringBootJDBCApplication)
+@Autowired
+PlayerRepository playerRepository;
+// CREATE
+		String input = args.length == 0 ? "2000-02-11" : args[0];
+		SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd");
+		playerRepository.insertPlayer(new Player("Manish Kumar Kushwaha",29,"Ireland",ft.parse(input),8));
+			// new Date from SQL
+		playerRepository.insertPlayer(new Player("ZAYA",29,"INDIA",Date.valueOf("2000-03-02"),8));
+		playerRepository.insertPlayer(new Player("Manish Kumar Kushwaha",29,"Ireland",ft.parse(input),8));
+
+		// READ
+		System.out.println("Player By ID:" + playerRepository.getPlayerById(1));
+
+		// Upadte -> Add PID value
+		playerRepository.updatePlayer(new Player(2,"Kumar Kushwaha",29,"India",ft.parse(input),8));
+		System.out.println("Player By ID AFTER UPDATE:" + playerRepository.getPlayerById(2));
+
+		// Delete
+		playerRepository.deleteById(2); // Check this table on H2 console
+
+		// Get All Players
+		System.out.println("All Player List:"+playerRepository.getAllPlayer());
+
+}
+
 
 ```
