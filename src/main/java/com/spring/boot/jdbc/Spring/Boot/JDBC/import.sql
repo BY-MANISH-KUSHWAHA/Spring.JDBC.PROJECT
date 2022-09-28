@@ -1,0 +1,4 @@
+INSERT INTO Player VALUES( 	'Alice',	22, 'INDIAN', '2000-01-04',	4);
+INSERT INTO Player VALUES( 	'Manish',	26, 'INDIAN', '2000-01-03',	3);
+INSERT INTO Player VALUES( 	'Kushwaha',	25, 'INDIAN', '2000-01-02',	2);
+INSERT INTO Player VALUES( 	'Kush',	24, 'INDIAN', '2000-01-01',	1);

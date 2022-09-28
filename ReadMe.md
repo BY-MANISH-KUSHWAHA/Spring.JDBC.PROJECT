@@ -398,6 +398,22 @@ HTTP METHODSs
 ![http://http://localhost:8080/h2-console](src/assets/11.PNG)
 
 
+# REST APP
+
+## JSON DATA BINDING
+```
+{
+    "name":value
+}
+
+=> different apps exchange data
+
+=> Jackson Dependency => POJO(Plain Old Java Object) => Converted => JSON Data Binding
+
+```
+![http://http://localhost:8080/h2-console](src/assets/12.PNG)
+
+
 
 
 

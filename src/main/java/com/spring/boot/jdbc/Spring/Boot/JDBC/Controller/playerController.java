@@ -14,6 +14,12 @@ public class playerController {
     @Autowired
     PlayerDAO dao;
 
+
+    @GetMapping(value = "/welcome")
+    public String welcome(){
+        return "{\"message\":\"Welcome Buddy in this Server.\"}";
+    }
+
     @GetMapping(value = "/allplayers")
     public List<Player> getAllPlayerFromDB(){
         return dao.getAllPlayers();
