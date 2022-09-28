@@ -61,7 +61,9 @@ public class playerController {
     public Player getPlayerByPIDFromDBJson2(Parms parameters)
     {
         //implement the setter and getter of the Params class.
-        return dao.getPlayerByPID(Integer.parseInt(parameters.pid));
+        System.out.println(parameters.pid);
+        return new Player();
+        //return dao.getPlayerByPID(Integer.parseInt(parameters.pid));
     }
 
     // -------------------------------- END Get Call with Parameters -----------------------------------

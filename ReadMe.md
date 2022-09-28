@@ -335,3 +335,69 @@ PlayerRepository playerRepository;
 
 
 ```
+
+# HTTP => Hyper Text Tranfer Protocol
+
+```
+Hypermedia Information, Collaborative Media => TIP Connections by default on PORT 80
+
+Stateless => No Particular Form => HTML, JSON, XML, PDF, PNG, JPEG => Data Exchange Statefull => Restful API => JSON, XML => Proper Form
+
+Stateful => Rest API => Json, XML => Proper Form
+
+URL + HTTP + RestfultAPI
+
+URL: Location your server => 192.168.8.8:8080 => amazon.com
+
+HTTP: TCP by 80 => Stateless => Data Exchange between your server and client
+
+Restful API: Representational state Tranfer => it should make sense
+
+Client     and      Server
+BrowserApp <=> Spring Boot App
+
+URL+ HTTP + Restful API[JSON,XML]
+
+----Example----
+Whater APP => Client => Request Temperature of Mumbai => Weather Data Its Raining => JSON Data(UI take this data and show as View)
+
+GoogleMaps => Servre => Response Temperature of Mumbai
+
+Response:
+    {
+        Location:Mumbai,
+        Temperature: 80,
+        TempUnit: C,
+        Prediction: 40,
+        PredictUnit: Percentange
+    }
+    
+ REST means we sending some meaningful Data to client.
+ 
+ Request Line: => Contains HTTp Method like(Get, Post, Put, Delete)
+ 
+ Request Header => Data with additional information about the request vou are passina =› Configurations for vour request line
+ 
+ Request Header => contain of the entity player
+ 
+ 
+
+```
+![http://http://localhost:8080/h2-console](src/assets/10.PNG)
+```
+Response Body/Message
+    => Status Code of Message => 200
+
+HTTP METHODSs
+1. POST => CREATING A RESOURCE => h2Database testdb
+2. GET => READING A RESOURCE => h2Database:testdb
+3. PUT => UPDATING A RESOURCE => h2Database:testdb
+4. DELETE => DELETING A RESOURCE=> h2Database:testdb
+
+```
+![http://http://localhost:8080/h2-console](src/assets/11.PNG)
+
+
+
+
+

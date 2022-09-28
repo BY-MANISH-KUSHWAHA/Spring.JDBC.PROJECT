@@ -54,25 +54,25 @@ public class SpringBootJdbcApplication implements CommandLineRunner {
 		// For log: spring.jpa.show-sql=true ==> add in properties
 
 		// CREATE
-		String input = args.length == 0 ? "2000-02-11" : args[0];
-		SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd");
-		playerRepository.insertPlayer(new Player("Manish Kumar Kushwaha",29,"Ireland",ft.parse(input),8));
-			// new Date from SQL
-		playerRepository.insertPlayer(new Player("ZAYA",29,"INDIA",Date.valueOf("2000-03-02"),8));
-		playerRepository.insertPlayer(new Player("Manish Kumar Kushwaha",29,"Ireland",ft.parse(input),8));
-
-		// READ
-		System.out.println("Player By ID:" + playerRepository.getPlayerById(1));
-
-		// Upadte -> Add PID value
-		playerRepository.updatePlayer(new Player(2,"Kumar Kushwaha",29,"India",ft.parse(input),8));
-		System.out.println("Player By ID AFTER UPDATE:" + playerRepository.getPlayerById(2));
-
-		// Delete
-		playerRepository.deleteById(2); // Check this table on H2 console
-
-		// Get All Players
-		System.out.println("All Player List:"+playerRepository.getAllPlayer());
+//		String input = args.length == 0 ? "2000-02-11" : args[0];
+//		SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd");
+//		playerRepository.insertPlayer(new Player("Manish Kumar Kushwaha",29,"Ireland",ft.parse(input),8));
+//			// new Date from SQL
+//		playerRepository.insertPlayer(new Player("ZAYA",29,"INDIA",Date.valueOf("2000-03-02"),8));
+//		playerRepository.insertPlayer(new Player("Manish Kumar Kushwaha",29,"Ireland",ft.parse(input),8));
+//
+//		// READ
+//		System.out.println("Player By ID:" + playerRepository.getPlayerById(1));
+//
+//		// Upadte -> Add PID value
+//		playerRepository.updatePlayer(new Player(2,"Kumar Kushwaha",29,"India",ft.parse(input),8));
+//		System.out.println("Player By ID AFTER UPDATE:" + playerRepository.getPlayerById(2));
+//
+//		// Delete
+//		playerRepository.deleteById(2); // Check this table on H2 console
+//
+//		// Get All Players
+//		System.out.println("All Player List:"+playerRepository.getAllPlayer());
 
 
 
