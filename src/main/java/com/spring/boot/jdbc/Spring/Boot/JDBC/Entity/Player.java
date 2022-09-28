@@ -9,7 +9,8 @@ import java.util.Date;
 public  class Player {
 
     @Id
-    @GeneratedValue
+    //@GeneratedValue
+    @Column(name = "Pid")
     private int pid; // Primary Key
 
     @Column(name = "Name")

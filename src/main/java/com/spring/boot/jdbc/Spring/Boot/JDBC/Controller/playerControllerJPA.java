@@ -8,6 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class playerControllerJPA {
@@ -30,9 +31,35 @@ public class playerControllerJPA {
         return service.getPlayerByID_PV_FromDBJson(PID); // PATH-VARIABLE define inside Service
     }
 
+    @GetMapping(value = "/jpa/playerbyid-2/{pid}")
+    public Player getPlayer_PV_SAME_NAME_ByID(@PathVariable int pid){
+        return service.getPlayerByID_PV_FromDBJson(pid); // PATH-VARIABLE define inside Service and Use same name for path and dependent varaiable(id)
+    }
+
     @GetMapping("/jpa/playerbyid")
     public Player getPlayerByPIDFromDBJson1(@RequestParam(name="pid", required = false, defaultValue = "0") int PID)
     {
         return service.getPlayerByIDFromDBJson(PID);
     }
+
+    // POST
+    @PostMapping("/addPlayer")
+    //@RequestMapping(method = RequestMethod.POST)
+    public Player addPlayer(@RequestBody Player p){
+        return service.addPlayer(p);
+    }
+
+    // Upadte Player complete filed
+    @PutMapping("/updatePlayer/{pid}")
+    public Player updatePlayer(@PathVariable int pid,@RequestBody Player player){
+        return service.updatePlayerById(pid,player);
+    }
+
+    // Partial Player update
+    @PutMapping("/patchPlayer/{pid}")
+    public Player patchPlayer(@PathVariable int pid,@RequestBody Map<String,Object> playerPartialDetails){
+        return service.patchPlayerById(pid,playerPartialDetails);
+    }
+
+
 }

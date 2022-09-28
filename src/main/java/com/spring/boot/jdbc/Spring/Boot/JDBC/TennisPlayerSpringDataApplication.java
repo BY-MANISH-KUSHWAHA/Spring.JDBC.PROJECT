@@ -23,13 +23,13 @@ public class TennisPlayerSpringDataApplication implements CommandLineRunner
     @Override
     public void run(String... args) throws Exception
     {
-        logger.info("\n Inserting a player \n", playerRepository.save(new Player("Shubham",23,"India", Date.valueOf("2000-01-05"),1)));
-        logger.info("\n Inserting a player \n", playerRepository.save(new Player("Arjun",24,"Pakistan", Date.valueOf("1990-01-05"),2)));
-        logger.info("\n Inserting a player \n", playerRepository.save(new Player("Manish",27,"USA", Date.valueOf("2001-01-05"),3)));
-        logger.info("\n Inserting a player \n", playerRepository.save(new Player("Kumar",33,"Pakistan", Date.valueOf("1990-01-05"),2)));
-        logger.info("\n Inserting a player \n", playerRepository.save(new Player("Kushwaha",29,"USA", Date.valueOf("2001-01-05"),3)));
-        logger.info("\n Inserting a player \n", playerRepository.save(new Player("Sharma",23,"Pakistan", Date.valueOf("1990-01-05"),2)));
-        logger.info("\n Inserting a player \n", playerRepository.save(new Player("Dahiya",34,"USA", Date.valueOf("2001-01-05"),3)));
+        logger.info("\n Inserting a player \n", playerRepository.save(new Player(1,"Shubham",23,"India", Date.valueOf("2000-01-05"),1)));
+        logger.info("\n Inserting a player \n", playerRepository.save(new Player(2,"Arjun",24,"Pakistan", Date.valueOf("1990-01-05"),2)));
+        logger.info("\n Inserting a player \n", playerRepository.save(new Player(3,"Manish",27,"USA", Date.valueOf("2001-01-05"),3)));
+        logger.info("\n Inserting a player \n", playerRepository.save(new Player(4,"Kumar",33,"Pakistan", Date.valueOf("1990-01-05"),2)));
+        logger.info("\n Inserting a player \n", playerRepository.save(new Player(5,"Kushwaha",29,"USA", Date.valueOf("2001-01-05"),3)));
+        logger.info("\n Inserting a player \n", playerRepository.save(new Player(6,"Sharma",23,"Pakistan", Date.valueOf("1990-01-05"),2)));
+        logger.info("\n Inserting a player \n", playerRepository.save(new Player(7,"Dahiya",34,"USA", Date.valueOf("2001-01-05"),3)));
 
         //
         logger.info("\n Findin the player by ID \n", playerRepository.findById(1));
