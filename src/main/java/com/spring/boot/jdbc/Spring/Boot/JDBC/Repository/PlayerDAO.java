@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -81,14 +82,8 @@ public class PlayerDAO {
             player.setName(rs.getString("Name"));
             player.setAge(rs.getInt("AGE"));
             player.setNationality(rs.getString("Nationality"));
-            SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd");
             String input = rs.getString("Dob");
-
-            try {
-                player.setDob(ft.parse(input));
-            } catch (ParseException e) {
-                throw new RuntimeException(e);
-            }
+            player.setDob(Date.valueOf(input));
             player.setDesignation(rs.getInt("Designation"));
 
             return player;

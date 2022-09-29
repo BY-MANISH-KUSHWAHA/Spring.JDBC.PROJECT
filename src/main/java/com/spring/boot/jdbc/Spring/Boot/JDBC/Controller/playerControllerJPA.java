@@ -56,10 +56,20 @@ public class playerControllerJPA {
     }
 
     // Partial Player update
-    @PutMapping("/patchPlayer/{pid}")
+    @PatchMapping("/patchPlayer/{pid}")
     public Player patchPlayer(@PathVariable int pid,@RequestBody Map<String,Object> playerPartialDetails){
         return service.patchPlayerById(pid,playerPartialDetails);
     }
 
+    // updating with Query (Define in PlayerSpringDataRepos..)
+    @PatchMapping("/patchPlayer/{pid}/nationality")
+    public void patchNationality(@PathVariable int pid, @RequestBody String nationality){
+        service.updateNationality(pid,nationality);
+    }
 
+    // delete player
+    @DeleteMapping("/deletePlayer/{pid}")
+    public void deletePlayer(@PathVariable int pid){
+        service.deletePlayerById(pid);
+    }
 }

@@ -1,7 +1,7 @@
 package com.spring.boot.jdbc.Spring.Boot.JDBC.Entity;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.sql.Date;
 
 @Entity             // RowMapping (create database/schema)
 @NamedQuery(name = "get-all-players",query = "SELECT p FROM Player p")
