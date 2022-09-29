@@ -413,6 +413,10 @@ HTTP METHODSs
 ```
 ![http://http://localhost:8080/h2-console](src/assets/12.PNG)
 
+# Exception Handler
+![http://http://localhost:8080/h2-console](src/assets/13.PNG)
+
+
 
 
 

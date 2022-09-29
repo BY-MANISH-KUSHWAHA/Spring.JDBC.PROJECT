@@ -72,4 +72,5 @@ public class playerControllerJPA {
     public void deletePlayer(@PathVariable int pid){
         service.deletePlayerById(pid);
     }
+    // instead of making different path we can do /player for all delete,add,patch,update etc.
 }
