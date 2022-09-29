@@ -1,6 +1,7 @@
 package com.spring.boot.jdbc.Spring.Boot.JDBC.ServiceLayer;
 
 import com.spring.boot.jdbc.Spring.Boot.JDBC.Entity.Player;
+import com.spring.boot.jdbc.Spring.Boot.JDBC.ErrorResponse.PlayerNotFoundException;
 import com.spring.boot.jdbc.Spring.Boot.JDBC.Repository.PlayerRepository;
 import com.spring.boot.jdbc.Spring.Boot.JDBC.Repository.PlayerSpringDataRepository;
 import org.apache.el.util.ReflectionUtil;
@@ -33,14 +34,14 @@ public class PlayerService {
     public Player getPlayerByIDFromDBJson(@PathVariable("pid") int pid){
         Optional<Player> player = repo.findById(pid);
         if(player.isPresent())  return player.get();
-        else throw new RuntimeException("Payer with Id="+pid+" not found.");
+        else throw new PlayerNotFoundException("Payer with Id="+pid+" not found.");
         //return null;
     }
 
     public Player getPlayerByID_PV_FromDBJson(@PathVariable int pid){
         Optional<Player> player = repo.findById(pid);
         if(player.isPresent())  return player.get();
-        else throw new RuntimeException("Payer with Id="+pid+" not found.");
+        else throw new PlayerNotFoundException("Payer with Id="+pid+" not found.");
         //return null;
     }
 
@@ -53,7 +54,7 @@ public class PlayerService {
     // UpdatePlayer
     public Player updatePlayerById(@PathVariable("pid") int pid,Player player){
         Optional<Player> p = repo.findById(pid);
-        if(p.isEmpty())  throw new RuntimeException("Payer with Id="+pid+" not found.");
+        if(p.isEmpty())  throw new PlayerNotFoundException("Payer with Id="+pid+" not found.");
         return repo.save(player);
     }
 
@@ -78,7 +79,7 @@ public class PlayerService {
             });
         }
         else{
-            throw new RuntimeException("Payer with Id="+pid+" not found.");
+            throw new PlayerNotFoundException("Payer with Id="+pid+" not found.");
         }
         return repo.save(player.get());
     }
@@ -88,16 +89,18 @@ public class PlayerService {
     @Transactional
     public void updateNationality(int pid,String nationality){
         Optional<Player> p = repo.findById(pid);
-        if(p.isEmpty())  throw new RuntimeException("Payer with Id="+pid+" not found.");
+        if(p.isEmpty())  throw new PlayerNotFoundException("Payer with Id="+pid+" not found.");
         repo.updateNationality(pid,nationality);
     }
 
     // delete player
     public void deletePlayerById(int pid){
         Optional<Player> p = repo.findById(pid);
-        if(p.isEmpty())  throw new RuntimeException("Payer with Id="+pid+" not found.");
+        if(p.isEmpty())  throw new PlayerNotFoundException("Payer with Id="+pid+" not found.");
         repo.delete(p.get());
     }
+
+
 
 
 }
